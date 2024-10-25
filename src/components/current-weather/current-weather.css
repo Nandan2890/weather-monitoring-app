@@ -1,0 +1,104 @@
+/* src/components/current-weather/current-weather.css */
+
+.weather {
+  width: 416px; /* Increased width by 30% (320px * 1.3 = 416px) */
+  border-radius: 6px;
+  box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
+  color: #fff;
+  background-color: #333;
+  margin: 20px auto 0 auto;
+  padding: 0 20px 20px 20px;
+}
+
+.top,
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.city {
+  font-weight: 600;
+  font-size: 18px; /* Adjusted for better readability */
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.weather-description {
+  font-weight: 400;
+  font-size: 16px; /* Increased slightly for better fit */
+  line-height: 1;
+  margin: 0;
+}
+
+.weather-date {
+  font-weight: 400;
+  font-size: 14px; /* Slightly increased for readability */
+  line-height: 1.5;
+  color: #bbb;
+  margin-top: 5px;
+}
+
+.weather-icon {
+  width: 100px; /* Slightly increased size to match the bigger box */
+}
+
+.temperature {
+  font-weight: 600;
+  font-size: 65px; /* Adjusted size for better fit within the larger box */
+  width: auto;
+  letter-spacing: -4px; /* Reduced letter-spacing slightly */
+  margin: 10px 0;
+}
+
+/* New styles for dropdown */
+.unit-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.unit-select label {
+  color: #fff;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.unit-select select {
+  padding: 5px;
+  background-color: #444;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.details {
+  width: 100%;
+  padding-left: 20px;
+}
+
+.parameter-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0; /* Added margin to separate rows */
+}
+
+.parameter-label {
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px; /* Increased size for better readability */
+}
+
+.parameter-value {
+  text-align: right;
+  font-weight: 600;
+  font-size: 14px; /* Increased size to match label */
+}
+
+.parameter-label.top {
+  border-bottom: 1px solid #fff;
+}
