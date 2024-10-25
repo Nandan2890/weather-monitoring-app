@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+Here’s a `README.md` file template for your weather monitoring application:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```markdown
+# Real-Time Weather Monitoring Application
 
-## Available Scripts
+This is a real-time weather monitoring application built with React for the frontend and Express with MySQL for the backend. The app retrieves weather data from the OpenWeatherMap API and allows users to visualize weather trends, set temperature units, and switch between daily and weekly reports. Additionally, it includes alert notifications for high temperatures.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Search for Cities**: Enter a city to view its current weather and forecast.
+- **Real-Time Updates**: Weather data updates every 5 minutes.
+- **Temperature Units**: Switch between Kelvin and Celsius.
+- **Daily & Weekly Reports**: Toggle between today’s forecast and a weekly summary.
+- **Alert Notifications**: Automatically sends an email alert if temperatures exceed a predefined threshold.
+- **Data Persistence**: Stores weather data in a MySQL database for weekly summary and analysis.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+src
+├── components
+│   ├── chart
+│   │   └── WeatherChart.js
+│   ├── current-weather
+│   │   └── CurrentWeather.js
+│   ├── forecast
+│   │   └── Forecast.js
+│   └── search
+│       └── Search.js
+├── App.js
+├── api.js
+└── server.js
+.env
+```
 
-### `npm test`
+### Frontend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React Components**:
+  - `Search`: Handles city searches.
+  - `CurrentWeather`: Displays current weather data.
+  - `Forecast`: Displays daily or weekly weather forecasts.
+  - `WeatherChart`: Renders a chart for visualizing temperature data.
 
-### `npm run build`
+### Backend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Express**: Hosts the API endpoints and connects to the MySQL database.
+- **MySQL**: Stores weather data for daily and weekly summaries.
+- **Nodemailer**: Sends email alerts when temperatures exceed the threshold.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Setup and Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- Node.js
+- MySQL
+- OpenWeatherMap API key
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Instructions
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/your-username/weather-monitoring-app.git
+   cd weather-monitoring-app
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Set up your `.env` file:
+   ```
+   WEATHER_API_KEY=your_openweathermap_api_key
+   DB_HOST=your_database_host
+   DB_USER=your_database_user
+   DB_PASSWORD=your_database_password
+   DB_NAME=weather_app
+   EMAIL_USER=your_email
+   EMAIL_PASS=your_email_password
+   ALERT_EMAIL=alert_recipient_email
+   ```
 
-## Learn More
+4. Set up the MySQL database:
+   ```sql
+   CREATE DATABASE weather_app;
+   USE weather_app;
+   CREATE TABLE weather (
+     id INT AUTO_INCREMENT PRIMARY KEY,
+     city VARCHAR(255),
+     temperature FLOAT,
+     weather_description VARCHAR(255),
+     date DATETIME
+   );
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. Start the server:
+   ```bash
+   npm start
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+6. Start the React frontend:
+   ```bash
+   cd client
+   npm start
+   ```
 
-### Code Splitting
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Open the app in your browser, enter a city, and select the report type (today or weekly).
+- Switch between Celsius and Kelvin temperature units.
+- If a city’s temperature exceeds the threshold, an email alert is sent.
 
-### Analyzing the Bundle Size
+## Technologies Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Frontend**: React, Chart.js
+- **Backend**: Express, Node.js
+- **Database**: MySQL
+- **Email Notifications**: Nodemailer
+- **Weather Data**: OpenWeatherMap API
 
-### Making a Progressive Web App
+## Future Improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Add more weather parameters (e.g., wind speed, visibility).
+- Implement user authentication and save user preferences.
+- Expand alerting system to support SMS notifications.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
